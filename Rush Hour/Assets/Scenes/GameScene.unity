@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 420779175}
   - component: {fileID: 420779177}
   - component: {fileID: 420779178}
+  - component: {fileID: 420779179}
   m_Layer: 0
   m_Name: Semi - Left
   m_TagString: Vehicle
@@ -259,7 +260,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 88547ba8a6dd2874eab482760258ef0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -358,6 +359,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &420779179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420779173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a8ec19bd19ac34bae45cca34d988bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &426531357
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +384,7 @@ GameObject:
   - component: {fileID: 426531359}
   - component: {fileID: 426531358}
   - component: {fileID: 426531361}
+  - component: {fileID: 426531362}
   m_Layer: 0
   m_Name: Limo - Right
   m_TagString: Vehicle
@@ -462,7 +477,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 34d93a8c426cf044b944f2c2fe7e7396, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -516,6 +531,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &426531362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426531357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a8ec19bd19ac34bae45cca34d988bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +651,7 @@ GameObject:
   - component: {fileID: 1137301137}
   m_Layer: 0
   m_Name: Car 2 - Left
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -713,7 +741,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e89b620c0d0ec254f86503b38720828f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -779,14 +807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a8ec19bd19ac34bae45cca34d988bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenPoint: {x: 0, y: 0, z: 0}
-  curScreenPoint: {x: 0, y: 0, z: 0}
   curPosition: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0, z: 0}
-  origin: {x: 0, y: 0, z: 0}
-  direction: {x: 0, y: 0, z: 0}
-  maxDistance: 0
-  canMove: 0
 --- !u!1 &1662438338
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,7 +913,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7b5d29c279564ca4786ebfb339de4c19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -913,7 +934,7 @@ Transform:
   m_GameObject: {fileID: 1662438338}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.534, y: -0.628, z: 0}
+  m_LocalPosition: {x: 0.84, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -958,14 +979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a8ec19bd19ac34bae45cca34d988bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenPoint: {x: 0, y: 0, z: 0}
-  curScreenPoint: {x: 0, y: 0, z: 0}
   curPosition: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0, z: 0}
-  origin: {x: 0, y: 0, z: 0}
-  direction: {x: 0, y: 0, z: 0}
-  maxDistance: 0
-  canMove: 0
 --- !u!1 &1754668402
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,14 +1009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a8ec19bd19ac34bae45cca34d988bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenPoint: {x: 0, y: 0, z: 0}
-  curScreenPoint: {x: 0, y: 0, z: 0}
   curPosition: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0, z: 0}
-  origin: {x: 0, y: 0, z: 0}
-  direction: {x: 0, y: 0, z: 0}
-  maxDistance: 0
-  canMove: 0
 --- !u!4 &1754668404
 Transform:
   m_ObjectHideFlags: 0
@@ -1080,7 +1087,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 899550cc55a88ee43ad5bd8c01570e6d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
