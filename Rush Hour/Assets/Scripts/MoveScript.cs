@@ -8,7 +8,10 @@ public class MoveScript : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Vector3 curScreenPoint;
-    private Vector3 curPosition;
+    private Vector3 curWorldPoint;
+    private Vector3 offset;
+    private Vector3 carScreenPoint;
+    private bool hit;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,45 +19,41 @@ public class MoveScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate() {
-        /*if (Input.GetMouseButton(0)) {
-            //Debug.Log("Mouse held down");
+    void Update() {
+        //Debug.Log("This script is running");
+    }
 
-            Vector3 mousePos = Input.mousePosition;
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(mousePos);
-
-            Physics.Raycast(ray, out hit);
-            if (Physics.Raycast(ray, out hit)) {
-                Debug.Log("Mouse is on a collider");
-                if(hit.transform.CompareTag("Vehicle") || hit.transform.CompareTag("Player")) {
-                    Debug.Log("Mouse is on the corrrect collider");
-                    curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
-                    curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
-                    gameObject.transform.position = curPosition;
-               }
-            }
-        }
-        */
+    void OnMouseUp() {
+        hit = false;
     }
 
     void OnMouseDrag() {
         //Debug.Log("OnMouseDrag called");
-        if(transform.CompareTag("Vehicle") || transform.CompareTag("Player")) {
-            //Debug.Log("Mouse is on the corrrect collider");
-            if (rb.constraints == RigidbodyConstraints2D.FreezePositionX) {
-                //if(rigidbody.constraints==RigidbodyConstraints.FreezeAll)print("Frozen");
+        if (!hit && !WinScript.end) {
+            if(transform.CompareTag("Vehicle") || transform.CompareTag("Player")) {
+                //Debug.Log("Mouse is on the corrrect collider");
+                carScreenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
-                curScreenPoint = new Vector3(0, Input.mousePosition.y, 10);
-                curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
-                transform.position = curPosition;
-            }else if (rb.constraints == RigidbodyConstraints2D.FreezePositionY) {
-                curScreenPoint = new Vector3(Input.mousePosition.x, 0, 10);
-                curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
-                transform.position = curPosition;
-            }else {
-                Debug.Log("This object is not constrained");
+                if (ConstraintScript.HasConstraint(rb.constraints, RigidbodyConstraints2D.FreezePositionX)) {
+                    curScreenPoint = new Vector3(carScreenPoint.x, Input.mousePosition.y, carScreenPoint.z);
+
+                }else if (ConstraintScript.HasConstraint(rb.constraints, RigidbodyConstraints2D.FreezePositionY)) {
+                    curScreenPoint = new Vector3(Input.mousePosition.x, carScreenPoint.y, carScreenPoint.z);
+
+                }else {
+                    //Debug.Log("This object is not constrained");
+                }
+
+                curWorldPoint = Camera.main.ScreenToWorldPoint(curScreenPoint);
+                transform.position = curWorldPoint;
             }
+        }
+        
+    }
+
+    void OnCollisionEnter2D (Collision2D col) {
+        if (col.gameObject != gameObject) {
+            hit = true;
         }
     }
 }
